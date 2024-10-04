@@ -10,16 +10,28 @@ public class Lean : MonoBehaviour
     float durationAnim = 0.75f;
     [SerializeField]
     float movimientoY = 2.0f;
+    [SerializeField]
+    float movimientoX = 2000.0f;
+    [SerializeField]
+    float movimientoy = -2.0f;
     // Start is called before the first frame update
-    void Start()
-    {
-        LeanTween.scale(gameObject, Vector3.one * sizeToScale, durationAnim).setEase(LeanTweenType.easeInBounce);
-        LeanTween.moveLocalY(gameObject, movimientoY, durationAnim).setEase(LeanTweenType.easeInBounce);
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (Input.GetKeyDown(KeyCode.Space))
+        { 
+            LeanTween.moveLocalY(gameObject, movimientoY, durationAnim).setEase(LeanTweenType.easeInBounce).setOnComplete(() => {
+
+                LeanTween.moveLocalX(gameObject, movimientoX, durationAnim).setEase(LeanTweenType.easeInBounce).setOnComplete(() => {
+            
+                    LeanTween.moveLocalY(gameObject, movimientoy, durationAnim).setEase(LeanTweenType.easeInBounce).setOnComplete(() => {
+
+                        LeanTween.moveLocalX(gameObject, -2.0f, durationAnim).setEase(LeanTweenType.easeInBounce);
+            });
+            });
+            }); 
+        }
+}
+
+    // Update is called once per frame
+   
 }

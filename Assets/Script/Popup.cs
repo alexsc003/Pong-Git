@@ -12,7 +12,7 @@ public class Popup : MonoBehaviour
     float moveLocalY;
     [SerializeField]
     float timeanim;
-
+    
 
    
     private void Start()
@@ -23,17 +23,31 @@ public class Popup : MonoBehaviour
     }
     void Update()
     {
-        if (popup == false)
-        {
-            transform.gameObject.popup(Vector3)
-        }
-
-
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            background.SetActive(!background.activeSelf);
-            popup.SetActive(!popup.activeSelf);
-            LeanTween.moveLocalY(popup, moveLocalY, timeanim).setEase(LeanTweenType.easeInBounce);
+            if (popup.activeSelf)
+                UnshowPopUp();
+            else
+                ShowPopUp();
         }
+        
     }
+    public void ShowPopUp()
+    {
+        LeanTween.alphaCanvas(background.GetComponent<CanvasGroup>(), 1f, 2);
+        background.SetActive(true);
+        popup.SetActive(true);
+        LeanTween.moveLocalY(popup, moveLocalY, timeanim).setEase(LeanTweenType.easeInBounce);
+    }
+    public void UnshowPopUp()
+    {
+        LeanTween.moveLocalY(popup, -1500.0f, 3).setEase(LeanTweenType.easeInBack).setOnComplete(()=>{
+            background.SetActive(false);
+        });
+        LeanTween.alphaCanvas(background.GetComponent<CanvasGroup>(), 0f, timeanim).setOnComplete(() =>
+        {
+            popup.SetActive(false);
+        });
+        }
 }
