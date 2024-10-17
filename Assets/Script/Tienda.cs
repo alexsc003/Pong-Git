@@ -5,25 +5,44 @@ using TMPro;
 
 public class Tienda : MonoBehaviour
 {
+    
+    
+    int dineroCantidad;
+
+    [SerializeField]
+    GameObject popUp;
+    [SerializeField]
+    GameObject noSaldo;
+    [SerializeField]
+    GameObject labelSaldo;
+
     [SerializeField]
     TextMeshProUGUI dinero;
     
-    int dineroCantidad;
-    
-    [SerializeField]
-    TextMeshProUGUI precio;
-    [SerializeField]
-    TextMeshProUGUI precio2;
-    int precioCantidad;
-    int precio2Cantidad;
 
     void Start()
     {
         dineroCantidad = Random.Range(0,100);
-        dinero.text = dineroCantidad.ToString();
-        precioCantidad = Random.Range(0,50);
-        precio.text = precioCantidad.ToString();
-        precio2Cantidad = Random.Range(0, 50);
-        precio2.text = precioCantidad.ToString();
+        dinero.text = dineroCantidad.ToString("000.00" + "$");
+    }
+    private void Update()
+    {
+        if (precioCantidad <= dineroCantidad)
+        {
+            dineroCantidad = dineroCantidad - precioCantidad;
+        }
+    }
+
+    public void RestarSaldo(float precio)
+    {
+        if (dineroCantidad > precio)
+        {
+            dineroCantidad -= precio
+                labelSaldo.text = RestarSaldo.ToString("000.00") + "$";
+            else
+            {
+                noSaldo.SetActive(true);
+            }
+        }
     }
 }
