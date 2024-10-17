@@ -23,7 +23,6 @@ public class Popup : MonoBehaviour
     }
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (popup.activeSelf)

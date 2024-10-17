@@ -5,44 +5,48 @@ using TMPro;
 
 public class Tienda : MonoBehaviour
 {
-    
-    
-    int dineroCantidad;
+    [SerializeField]
+    float saldo;
+    [SerializeField]
+    TextMeshProUGUI labelSaldo;
 
     [SerializeField]
-    GameObject popUp;
+    GameObject confirmarCompra;
     [SerializeField]
     GameObject noSaldo;
     [SerializeField]
-    GameObject labelSaldo;
-
-    [SerializeField]
-    TextMeshProUGUI dinero;
-    
-
+    float compra;
+    // Start is called before the first frame update
     void Start()
     {
-        dineroCantidad = Random.Range(0,100);
-        dinero.text = dineroCantidad.ToString("000.00" + "$");
-    }
-    private void Update()
-    {
-        if (precioCantidad <= dineroCantidad)
-        {
-            dineroCantidad = dineroCantidad - precioCantidad;
-        }
-    }
+        saldo = Random.Range(450f, 950f);
+        labelSaldo.text = saldo.ToString("000.00") + "€";
 
-    public void RestarSaldo(float precio)
+    }
+    public void RestarSaldo(float precioItem)
     {
-        if (dineroCantidad > precio)
+        if (saldo > precioItem)
         {
-            dineroCantidad -= precio
-                labelSaldo.text = RestarSaldo.ToString("000.00") + "$";
-            else
-            {
-                noSaldo.SetActive(true);
-            }
+            confirmarCompra.SetActive(true);
+            compra = precioItem;
         }
+        else
+        {
+            noSaldo.SetActive(true);
+        }
+    }
+    public void Cerrar()
+    {
+        noSaldo.SetActive(false);
+    }
+    public void Cerrar2()
+    {
+        confirmarCompra.SetActive(false);
+    }
+    public void Compra(float precioItem)
+    {
+        confirmarCompra.SetActive(false);
+        saldo = saldo - compra;
+        labelSaldo.text = saldo.ToString("000.00") + "€";
     }
 }
