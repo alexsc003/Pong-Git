@@ -931,8 +931,14 @@ MonoBehaviour:
   MyWallet: {fileID: 202370348}
   textButton: {fileID: 2136585742}
   textoCompra: {fileID: 1853673417}
+  posiblesNombres:
+  - Espada de Madera
+  - Espada del Heroe
+  - Espada Rota
+  - Espada de Lagarto
   nameItem: Semillas
   priceItem: 0
+  i: 0
 --- !u!1 &583943486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,8 +1594,14 @@ MonoBehaviour:
   MyWallet: {fileID: 202370348}
   textButton: {fileID: 609395250}
   textoCompra: {fileID: 1853673417}
-  nameItem: Flores
+  posiblesNombres:
+  - Escudo de Madera
+  - Escudo de Hierro
+  - Escudo de Aluminio
+  - Escudo de Duende
+  nameItem: 
   priceItem: 0
+  i: 0
 --- !u!1 &1045138053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,8 +1751,10 @@ MonoBehaviour:
   MyWallet: {fileID: 202370348}
   textButton: {fileID: 0}
   textoCompra: {fileID: 0}
+  posiblesNombres: []
   nameItem: Objeto
   priceItem: 0
+  i: 0
 --- !u!1 &1046252167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,8 +2037,14 @@ MonoBehaviour:
   MyWallet: {fileID: 202370348}
   textButton: {fileID: 2066992599}
   textoCompra: {fileID: 1853673417}
+  posiblesNombres:
+  - Arco Legendario
+  - Arco de Principiante
+  - Arco de Hierro
+  - Arco Curvo
   nameItem: Jarron
   priceItem: 0
+  i: 0
 --- !u!1 &1231612706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,8 +2194,14 @@ MonoBehaviour:
   MyWallet: {fileID: 202370348}
   textButton: {fileID: 355394118}
   textoCompra: {fileID: 1853673417}
+  posiblesNombres:
+  - Bombas
+  - Bombas Acuaticas
+  - Flores Bomba
+  - Bombas Gelidas
   nameItem: Maceta
   priceItem: 0
+  i: 0
 --- !u!1 &1321554291
 GameObject:
   m_ObjectHideFlags: 0

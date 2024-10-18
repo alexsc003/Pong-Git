@@ -16,7 +16,8 @@ public class Tienda : MonoBehaviour
     GameObject noSaldo;
     [SerializeField]
     float compra;
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         saldo = Random.Range(450f, 950f);
@@ -45,8 +46,17 @@ public class Tienda : MonoBehaviour
     }
     public void Compra(float precioItem)
     {
+        if (saldo > compra)
+        {       
         confirmarCompra.SetActive(false);
         saldo = saldo - compra;
         labelSaldo.text = saldo.ToString("000.00") + "€";
+        }
+        else
+        {
+            noSaldo.SetActive(true);
+            confirmarCompra.SetActive(true);
+        }
+        
     }
 }
